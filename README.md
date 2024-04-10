@@ -1,36 +1,68 @@
-# IST769 Spring 2023 Final Exam
+# IST469/769 Final Exam Week Spring 2024
 
-## Front Matter 
+This final exam is designed to test your ability to work with data in a distributed environment. You will be working course registration and curricular data. You will be asked to create a various data analytics from the source data. 
 
-### Important Disclaimer
+There is a lot of information in this document. Please read it carefully. If you have any questions, please ask them in class on Monday.
 
-**This is an open book EXAM. The intent is to measure your knowledge of the course material. You are expected to work on this on your own. The exam period begins when this document is released.**
+## Exam Meta
 
-**Allowed During the Exam Period:**
+- This is an open book EXAM. 
+- The intent is to measure YOUR INDIVIDUAL knowledge of the course material. 
+- You are expected to work on this on your own. The exam period begins when this document is released.
+- The purpose of the exam is to demonstrate what you have learned from the course material, not what you know already.
+- Solutions that use code we didn't learn in the class will not receive credit. 
+
+### Exam Schedule
+
+- 4/17 Exam is released after class unit K is complete. 
+- 4/22 Monday we will have exam Q and A.   
+   Before this meeting you should verify you can run the exam environment and connect to the data sources with spark and drill.  
+   This is the only time you will be able to ask questions about the exam. You can pre-ask your questions on the class google doc.
+- 4/24 Wednesday no class. This time is given for you to work on the exam.
+- 4/26 Friday exam must be turned in to blackboard (screesnhots + ipynb file) by 11:59pm
+- 4/27 Saturday exam accepted at 10% penalty by 11:59pm
+- 4/28 Sunday exam accepted at 20% penalty by 11:59pm
+- 4/29 Exam no longer accepted.
+
+Deadlines are strictly enforced.
+
+### Academic Integrity
+
+Allowed During the Exam Period:
 
 - All Resources from this class.
-- Content from the internet (pages, videos, posted stack overflow, questions, etc., generally anything you can find with a web search).
-- Whatever we discuss in class on Monday.
-- Asking the instructor for clarification on the Teams Channel ONLY (so everyone sees it).
+- Content from the internet (pages, videos, posted stack overflow, questions, etc., generally anything you can find with a web or library search). 
+- Whatever we discuss in class on Monday. No exam questions after Monday.
 
-**NOT Allowed During the Exam Period:**
+NOT Allowed During the Exam Period (These are Academic Integrity violations):
 
-- Bouncing ideas off your classmates, or collaborating on approaches. 
+- AI bots like Chat-GPT.
+- Bouncing ideas off your classmates, or collaborating on approaches to solving this problem. 
 - Asking another human for clarification, advice, interpretation, or suggestions whether in person or online, whether synchronously or asynchronously.
-- Solutions that use code we didn't learn in the class. Stick to Pyspark SQL, Pyspark Dataframes API, and SQL in Drill. No spark RDD or regular Python.
 - Use of test aid websites like Chegg, Coursehero, etc. These won't be helpful, and they are evil anyways.
+
+Violations of Academic integrity will be reported. Sanctions are a zero grade on the exam.
+
+## Setup
+
+To get this midterm:
+
+- On a computer that meetings the requirements of the course, open a terminal:
+- `$ git clone https://github.com/mafudge/ist769sp24final.git`
+- `$ cd ist769sp24final`
 
 ### Getting Started
 
-Is highly recommended that you use vLab to complete this exam. If you don't you're on your own regarding getting this working on your own computer.
+Warning. You'll be running quite a few services concurrently for this exam. If you don't have sufficient memory, this could be a problem. In this case, I highly recommended that you use Azure Labs to complete this exam. If you don't you're on your own regarding getting this working on your own computer!
 
 1. Check if there are containers running: `PS> docker ps`
 2. Stop any running containers: `PS> docker ps -q | % { docker stop $_ }`
 2. Clone this repository: `git clone https://github.com/mafudge/ist769sp23final`
-3. Change into the repository directory: `cd ist769sp23final`
+3. Change into the repository directory: `cd ist769sp24final`
 4. Build the dataloader container: `docker-compose build`
 4. Bring up the docker environment: `docker-compose up -d`
-5. The data loader service `dataloader` will import data into the databases to begin. To check on its status: `docker-compose logs dataloader`
+5. The data loader service `dataloader` will import data into the databases to begin. To check on its status: `docker-compose logs dataloader`  
+When done you will see `ist769sp24final-dataloader-1  | DONE! dataloader is complete!` in the logs.
 
 ## The iSchool Data Scientist
 
@@ -43,11 +75,9 @@ I suggest getting familiar with the data prior to attempting to solve the proble
 
 ## Exam
 
-**DO NOT USE CHAT-GPT OR OTHER GENERATIVE AI'S, PLEASE JUST STICK TO THE CLASS LESSONS**
-
 ### Instructions
 
-Complete all answers in the `Exam.ipynb` file in the `work` folder! You will turn this file in to Blackboard in addition to your official exam document submission.
+Complete all your answers in the `Exam.ipynb` file in the `work` folder! You will turn this file in to Blackboard in addition to your official exam document submission.
 
 Each question is worth 5 points. 
 
@@ -70,7 +100,7 @@ For the highest possible marks, for each question, include the following in the 
 
 ### Exam Questions
 
-Unless you are explicitly instructed otherwise, answer each of the following using PySpark / Spark SQL. For any queries you write make sure to include a `printSchema()` and a sample of the output which  demonstrates the code is correct clearly and trivially.
+Unless you are explicitly instructed otherwise, answer each of the following using PySpark / Spark SQL. For any queries you write make sure to include a `printSchema()` and a sample of the output which clearly demonstrates the code is correct clearly and trivially.
 
 1. Create a spark session that is configured to connect to `mongodb`, `minio`, `cassandra`, '`elasticsearch` and `neo4j`.
 2. Demonstrate you can read the process-oriented data `enrollments` and `sections` from `minio` using PySpark. 
@@ -96,7 +126,5 @@ Unless you are explicitly instructed otherwise, answer each of the following usi
 
 ### Turning it in
 
-- Complete the `E2-Submission-Form.docx`.
+- Complete the prompts in blackboard for EXAM 2.
 - Include your `Exam.ipynb` with completed questions. 
-- Make sure your name and email are in BOTH files where you are prompted to add them.
-- turn both files into blackboard prior to the deadline. 
