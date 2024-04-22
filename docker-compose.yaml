@@ -13,22 +13,22 @@ services:
     entrypoint: ["/bin/bash", "-c", "dos2unix <run.sh | bash" ]
     #entrypoint: ["/bin/bash"]
     depends_on:
-      - drill
+      # - drill
       - jupyter 
 
   ### clients ###  
   #drill#
-  drill:
-    image: apache/drill:1.21.1
-    command: /bin/bash
-    tty: true
-    ports:
-    - "8047:8047"
-    - "31010:31010"
-    ulimits:
-      memlock: -1
-      nproc: 32768
-      nofile: 100000
+  # drill:
+  #   image: apache/drill:1.21.1
+  #   command: /bin/bash
+  #   tty: true
+  #   ports:
+  #   - "8047:8047"
+  #   - "31010:31010"
+  #   ulimits:
+  #     memlock: -1
+  #     nproc: 32768
+  #     nofile: 100000
 
   jupyter:
     image: ist769/jupyter_pyspark:20210924b 
@@ -41,7 +41,7 @@ services:
       - "8888:8888"
     volumes: 
       - ./work:/home/jovyan/work
-      - ../../datasets:/home/jovyan/datasets
+      # - ../../datasets:/home/jovyan/datasets
 
   
   ### database servers ###  
